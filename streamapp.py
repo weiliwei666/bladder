@@ -20,6 +20,12 @@ with st.sidebar:
     Grade = st.selectbox(label = "Grade:\rLow Grade=1,High Grade=2",options=['1','2'])
     Radiotherapy=st.selectbox(label = "Radiotherapy:\rNo\\Unkown=0,Yes=1",options=['0','1'])
     Chemotherapy=st.selectbox(label = "Chemotherapy:\rNo\\Unkown=0,Yes=1",options=['0','1'])
+st.title('Real-time Prediction')
+CSS36_prob = estimator36.predict_proba([Age,Race,Gender,PrimarySite,TStage,NStage,MStage,TumorSize,Grade,Radiotherapy,Chemotherapy])[1]
+CSS60_prob = estimator60.predict_proba([Age,Race,Gender,PrimarySite,TStage,NStage,MStage,TumorSize,Grade,Radiotherapy,Chemotherapy])[1]
+
+st.write('The probability of this patient dying from bladder cancer within 3 years is {:.1f}%'.format(CSS36_prob*100))
+st.write('The probability of this patient dying from bladder cancer within 5 years is {:.1f}%'.format(CSS60_prob*100))
 
 st.title('SHAP Importance')
 image1=Image.open('shap_values36.png')
@@ -28,10 +34,3 @@ st.write('3-year CSS')
 st.image([image1])
 st.write('5-year CSS')
 st.image([image2])
-st.title('Real-time Prediction')
-CSS36_prob = estimator36.predict_proba([Age,Race,Gender,PrimarySite,TStage,NStage,MStage,TumorSize,Grade,Radiotherapy,Chemotherapy])[1]
-print('The probability of this patient dying from bladder cancer within 3 years is {:.1f}%'.format(CSS36_prob*100))
-st.write('The probability of this patient dying from bladder cancer within 3 years is {:.1f}%'.format(CSS36_prob*100))
-CSS60_prob = estimator60.predict_proba([Age,Race,Gender,PrimarySite,TStage,NStage,MStage,TumorSize,Grade,Radiotherapy,Chemotherapy])[1]
-print('The probability of this patient dying from bladder cancer within 5 years is {:.1f}%'.format(CSS60_prob*100))
-st.write('The probability of this patient dying from bladder cancer within 5 years is {:.1f}%'.format(CSS60_prob*100))
