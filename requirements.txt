@@ -1,5 +1,2 @@
-catboost==1.1.1
-Image==9.2.0
-PIL==9.2.0
-streamlit==1.15.2
+catboost==1.0.6
 
