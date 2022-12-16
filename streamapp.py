@@ -1,5 +1,7 @@
 import streamlit as st
+import catboost
 from catboost import CatBoostClassifier
+import PIL
 from PIL import Image
 st.title("Predictor of Cancer-Specific Survival for Bladder-Preserving Therapy of Muscle-Invasive Bladder Cancer")
 estimator36=CatBoostClassifier()
