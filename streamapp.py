@@ -24,8 +24,10 @@ with st.sidebar:
 st.title('SHAP Importance')
 image1=Image.open('shap_values36.png')
 image2=Image.open('shap_values60.png')
-st.image([image1,image2])
-
+st.write('3-year CSS')
+st.image([image1])
+st.write('5-year CSS')
+st.image([image2])
 st.title('Real-time Prediction')
 CSS36_prob = estimator36.predict_proba([Age,Race,Gender,PrimarySite,TStage,NStage,MStage,TumorSize,Grade,Radiotherapy,Chemotherapy])[1]
 print('The probability of this patient dying from bladder cancer within 3 years is {:.1f}%'.format(CSS36_prob*100))
