@@ -21,8 +21,19 @@ with st.sidebar:
     Radiotherapy=st.selectbox(label = "Radiotherapy:\rNo\\Unkown=0,Yes=1",options=['0','1'])
     Chemotherapy=st.selectbox(label = "Chemotherapy:\rNo\\Unkown=0,Yes=1",options=['0','1'])
 st.title('Real-time Prediction')
-CSS36_prob = estimator36.predict_proba([Age,Race,Gender,PrimarySite,TStage,NStage,MStage,TumorSize,Grade,Radiotherapy,Chemotherapy])[1]
-CSS60_prob = estimator60.predict_proba([Age,Race,Gender,PrimarySite,TStage,NStage,MStage,TumorSize,Grade,Radiotherapy,Chemotherapy])[1]
+Race=int(Race)
+Gender=int(Gender)
+PrimarySite=int(PrimarySite)
+TStage=int(TStage)
+NStage=int(NStage)
+MStage=int(MStage)
+Grade=int(Grade)
+Radiotherapy = int(Radiotherapy)
+Chemotherapy=int(Chemotherapy)
+X36=[Age,Race,Gender,PrimarySite,TStage,NStage,MStage,TumorSize,Grade,Radiotherapy,Chemotherapy]
+X60=[Age,Race,Gender,PrimarySite,TStage,NStage,MStage,TumorSize,Grade,Radiotherapy,Chemotherapy]
+CSS36_prob = estimator36.predict_proba(X36)[1]
+CSS60_prob = estimator60.predict_proba(X60)[1]
 
 st.write('The probability of this patient dying from bladder cancer within 3 years is {:.1f}%'.format(CSS36_prob*100))
 st.write('The probability of this patient dying from bladder cancer within 5 years is {:.1f}%'.format(CSS60_prob*100))
