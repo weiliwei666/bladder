@@ -3,7 +3,7 @@ import catboost
 from catboost import CatBoostClassifier
 import PIL
 from PIL import Image
-st.title("Predictor of Cancer-Specific Survival for Bladder-Preserving Therapy of Muscle-Invasive Bladder Cancer")
+st.title("Calculator of Cancer-Specific Survival for Muscle-Invasive Bladder Cancer receiving Bladder-Preserving Therapy")
 estimator36=CatBoostClassifier()
 estimator36.load_model('catboost36')
 estimator60=CatBoostClassifier()
