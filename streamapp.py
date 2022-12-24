@@ -35,8 +35,8 @@ X60=[Age,Race,Gender,PrimarySite,TStage,NStage,MStage,TumorSize,Grade,Radiothera
 CSS36_prob = estimator36.predict_proba(X36)[1]
 CSS60_prob = estimator60.predict_proba(X60)[1]
 
-st.title('The probability of 3-year CSS is {:.1f}%'.format(CSS36_prob*100))
-st.title('The probability of 5-year CSS is {:.1f}%'.format(CSS60_prob*100))
+st.title('3-year CSS probability: {:.1f}%'.format(CSS36_prob*100))
+st.title('5-year CSS probability: {:.1f}%'.format(CSS60_prob*100))
 
 st.title('Risk Stratification')
 image3=Image.open('risk_stratification.png')
