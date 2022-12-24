@@ -38,6 +38,11 @@ CSS60_prob = estimator60.predict_proba(X60)[1]
 st.write('The probability of this patient dying from bladder cancer within 3 years is {:.1f}%'.format(CSS36_prob*100))
 st.write('The probability of this patient dying from bladder cancer within 5 years is {:.1f}%'.format(CSS60_prob*100))
 
+st.title('Risk Stratification')
+image3=Image.open('risk_stratification.png')
+st.write('Low risk: probability ≤ 65%, Medium risk: probability 66% to 80%, High risk: probability ＞ 80%.')
+st.image([image3])
+
 st.title('SHAP Importance')
 image1=Image.open('shap_values36.png')
 image2=Image.open('shap_values60.png')
